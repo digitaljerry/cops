@@ -650,4 +650,11 @@ order by substr (upper (sort), 1, 1)', 'substr (upper (sort), 1, 1) as title, co
 
         return $result;
     }
+
+    public function getCustomColumns() {
+        global $config;
+        $columns = $config['cops_calibre_custom_column_list'];
+        $cc = $this->getCustomColumnValues($columns, true);
+        return $cc;
+    }
 }

@@ -242,6 +242,14 @@ class OPDSRenderer
             self::getXmlStream ()->endElement ();
         }
 
+        $cc = $entry->book->getCustomColumns ();
+        foreach ($cc as $customColumn) {
+            self::getXmlStream ()->startElement ("customcolumn");
+                self::getXmlStream ()->writeAttribute ("title", $customColumn['customColumnType']['columnTitle']);
+                self::getXmlStream ()->writeAttribute ("value", $customColumn['htmlvalue']);
+            self::getXmlStream ()->endElement ();
+        }
+
     }
 
     public function render ($page) {
