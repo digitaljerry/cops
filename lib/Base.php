@@ -32,6 +32,7 @@ abstract class Base
     const PAGE_PUBLISHER_DETAIL = "21";
     const PAGE_ALL_RATINGS = "22";
     const PAGE_RATING_DETAIL = "23";
+    const PAGE_DASHBOARD = "24";
 
     const COMPATIBILITY_XML_ALDIKO = "aldiko";
 

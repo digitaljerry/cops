@@ -106,6 +106,7 @@ class Book extends Base
     public $tags = NULL;
     public $languages = NULL;
     public $format = array ();
+    public $group;
 
 
     public function __construct($line) {

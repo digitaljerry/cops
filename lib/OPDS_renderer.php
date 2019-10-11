@@ -206,6 +206,13 @@ class OPDSRenderer
             self::renderLink ($link);
         }
 
+        $group = $entry->group;
+        if (!empty ($group)) {
+            self::getXmlStream ()->startElement ("group");
+                self::getXmlStream ()->text ($group);
+            self::getXmlStream ()->endElement ();
+        }
+
         if (get_class ($entry) != "EntryBook") {
             return;
         }
@@ -239,6 +246,13 @@ class OPDSRenderer
         if (!empty ($lang)) {
             self::getXmlStream ()->startElement ("dcterms:language");
                 self::getXmlStream ()->text ($lang);
+            self::getXmlStream ()->endElement ();
+        }
+
+        $group = $entry->book->group;
+        if (!empty ($group)) {
+            self::getXmlStream ()->startElement ("group");
+                self::getXmlStream ()->text ($group);
             self::getXmlStream ()->endElement ();
         }
 
@@ -283,4 +297,3 @@ class OPDSRenderer
         return self::endXmlDocument ();
     }
 }
-

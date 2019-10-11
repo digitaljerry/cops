@@ -71,6 +71,8 @@ class Page
                 return new PageAbout ($id, $query, $n);
             case Base::PAGE_CUSTOMIZE :
                 return new PageCustomize ($id, $query, $n);
+            case Base::PAGE_DASHBOARD :
+                return new PageDashboard ($id, $query, $n);
             default:
                 $page = new Page ($id, $query, $n);
                 $page->idPage = "cops:catalog";

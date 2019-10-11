@@ -18,6 +18,7 @@ class Author extends Base
     public $id;
     public $name;
     public $sort;
+    public $group;
 
     public function __construct($post) {
         $this->id = $post->id;

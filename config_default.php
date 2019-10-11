@@ -179,7 +179,7 @@
      *
      * Note that the composite custom columns are not supported
      */
-    $config['cops_calibre_custom_column'] = array();
+    $config['cops_calibre_custom_column'] = array('Rally', );
 
     /*
      * Custom Columns for the list representation
@@ -189,7 +189,7 @@
      *
      * Note that the composite custom columns are not supported
      */
-    $config['cops_calibre_custom_column_list'] = array ();
+    $config['cops_calibre_custom_column_list'] = array ('lexile_score', 'trouble_words', 'reading_chapter_start', 'cover_color');
 
     /*
      * Custom Columns for the book preview panel
@@ -199,7 +199,7 @@
      *
      * Note that the composite custom columns are not supported
      */
-    $config['cops_calibre_custom_column_preview'] = array ();
+    $config['cops_calibre_custom_column_preview'] = array ('lexile_score', 'trouble_words', 'reading_chapter_start', 'cover_color');
 
     /*
      * Rename .epub to .kepub.epub if downloaded from a Kobo eReader

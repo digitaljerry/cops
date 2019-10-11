@@ -14,6 +14,7 @@ class Tag extends Base
 
     public $id;
     public $name;
+    public $group;
 
     public function __construct($post) {
         $this->id = $post->id;
@@ -36,6 +37,15 @@ class Tag extends Base
     public static function getTagById ($tagId) {
         $result = parent::getDb ()->prepare('select id, name  from tags where id = ?');
         $result->execute (array ($tagId));
+        if ($post = $result->fetchObject ()) {
+            return new Tag ($post);
+        }
+        return NULL;
+    }
+
+    public static function getTagByName ($tagName) {
+        $result = parent::getDb ()->prepare('select id, name  from tags where name = ?');
+        $result->execute (array ($tagName));
         if ($post = $result->fetchObject ()) {
             return new Tag ($post);
         }

@@ -79,6 +79,7 @@
     "ratingword.one": "1 star",
     "recent.list": "{0} most recent books",
     "recent.title": "Recent additions",
+    "dashboard.title": "Dashboard",
     "search.alternate": "Search",
     "search.result": "Search result for *{0}*",
     "search.result.author": "Search result for *{0}* in authors",
