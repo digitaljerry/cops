@@ -81,6 +81,7 @@
     "recent.title": "Recent additions",
     "dashboard.title": "Dashboard",
     "search.alternate": "Search",
+    "search.result.all": "Search result *{0}*",
     "search.result": "Search result for *{0}*",
     "search.result.author": "Search result for *{0}* in authors",
     "search.result.book": "Search result for *{0}* in books",

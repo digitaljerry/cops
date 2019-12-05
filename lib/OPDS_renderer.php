@@ -146,6 +146,13 @@ class OPDSRenderer
                     self::renderLink ($link);
                 }
             }
+            if($page->idPage == "cops:dashboard" ) {
+              $popularTagId = Tag::getTagByName('Popular');
+              self::renderLink ( new LinkNavigation ("?page=".Base::PAGE_ALL_TAGS, "tags") );
+              self::renderLink ( new LinkNavigation ("?page=".Base::PAGE_LATEST, "recents") );
+              self::renderLink ( new LinkNavigation ("?page=".Base::PAGE_TAG_DETAIL."&id=$popularTagId->id", "popular") );
+              self::renderLink ( new LinkNavigation ("?page=".Base::PAGE_ALL_AUTHORS, "authors") );
+            }
     }
 
     private function endXmlDocument () {
