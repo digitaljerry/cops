@@ -10,7 +10,7 @@ class Author extends Base
 {
     const ALL_AUTHORS_ID = "cops:authors";
 
-    const AUTHOR_COLUMNS = "authors.id as id, authors.name as name, authors.sort as sort, count(*) as count";
+    const AUTHOR_COLUMNS = "authors.id as id, authors.name as name, authors.link as link, authors.sort as sort, count(*) as count";
     const SQL_AUTHORS_BY_FIRST_LETTER = "select {0} from authors, books_authors_link where author = authors.id and upper (authors.sort) like ? group by authors.id, authors.name, authors.sort order by sort";
     const SQL_AUTHORS_FOR_SEARCH = "select {0} from authors, books_authors_link where author = authors.id and (upper (authors.sort) like ? or upper (authors.name) like ?) group by authors.id, authors.name, authors.sort order by sort";
     const SQL_ALL_AUTHORS = "select {0} from authors, books_authors_link where author = authors.id group by authors.id, authors.name, authors.sort order by sort";
@@ -18,6 +18,7 @@ class Author extends Base
     public $id;
     public $name;
     public $sort;
+    public $image;
     public $group;
 
     public function __construct($post) {
@@ -82,7 +83,7 @@ order by substr (upper (sort), 1, 1)", "substr (upper (sort), 1, 1) as title, co
     }
 
     public static function getAuthorByBookId ($bookId) {
-        $result = parent::getDb ()->prepare('select authors.id as id, authors.name as name, authors.sort as sort from authors, books_authors_link
+        $result = parent::getDb ()->prepare('select authors.id as id, authors.name as name, authors.link as link, authors.sort as sort from authors, books_authors_link
 where author = authors.id
 and book = ?');
         $result->execute (array ($bookId));

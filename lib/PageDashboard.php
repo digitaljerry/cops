@@ -35,7 +35,6 @@ class PageDashboard extends Page
         $allAuthors = Author::getAllAuthors();
         foreach ($allAuthors as &$entry) {
             $entry->group = "AUTHORS";
-            // var_dump($entry);
         }
 
         $this->entryArray = array_merge($tags, $popular, $recentBooks, $allAuthors);

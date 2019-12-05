@@ -176,9 +176,14 @@ abstract class Base
             } else {
                 $title = $post->name;
             }
-            array_push ($entryArray, new Entry ($title, $instance->getEntryId (),
-                str_format (localize("bookword", $post->count), $post->count), "text",
-                array ( new LinkNavigation ($instance->getUri ())), "", $post->count));
+            $entry = new Entry ($title, $instance->getEntryId (),
+            str_format (localize("bookword", $post->count), $post->count), "text",
+            array ( new LinkNavigation ($instance->getUri ())), "", $post->count);
+            
+            if ( substr( $entry->id, 0, 13 ) === "cops:authors:") {
+                $entry->image = $post->link;
+            }
+            array_push ($entryArray, $entry);
         }
         return $entryArray;
     }

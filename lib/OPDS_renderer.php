@@ -220,6 +220,13 @@ class OPDSRenderer
             self::getXmlStream ()->endElement ();
         }
 
+        $image = $entry->image;
+        if (!empty ($image)) {
+            self::getXmlStream ()->startElement ("image");
+                self::getXmlStream ()->text ($image);
+            self::getXmlStream ()->endElement ();
+        }
+
         if (get_class ($entry) != "EntryBook") {
             return;
         }
